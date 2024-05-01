@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "EB Garamond", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  background: #f9f8f8de;
+  color: #000;
+}
+
+.divRowContent {
+  display: flex;
+  gap: 12px;
+}
