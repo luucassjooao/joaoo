@@ -51,15 +51,16 @@ export default function Home() {
               fontWeight: 400,
             }} >lucas</h3>
           </div>
-          <Image src={'/happyguts.jpg'} alt='gif' width={120} height={120} unoptimized />
+          <Image src={'/happyguts.jpg'} alt='gif' width={120} height={120} />
         </div>
-        <span>{"''i am grateful''"}</span>
-        <br />
-        <span>a youngster building and discovering things</span>
+        <span className="block" >{"''i am grateful''"}</span>
+        <span className="block">tentando se divertir criando uns trem legal ai</span>
+        <small className="block" style={{ fontSize: '10px' }}>frontend é tipo: nossa essa paleta de cor está um escandalo 🤷‍♂️💅💄</small>
+        <small className="block" style={{ fontSize: '10px' }}>backend é tipo: nem sempre 1 + 1 é igual a 2 🤓☝️</small>
         <div className="divRowContent text-blue-700 mt-2 mb-2" >
         {/* style={{ fontSize: '18px', color: 'blue', marginTop: '12px' }} */}
-          <Link href={"https://github.com/luucassjooao"} className="hover:text-purple-900" >github</Link>
-          <h4 className="hover:text-purple-900" >pensamentos/estudos</h4>
+          <a href={"https://github.com/luucassjooao"} target="_blank" className="hover:text-purple-900" >github</a>
+          <Link href={'/essays'} className="hover:text-purple-900" >pensamentos/estudos</Link>
         </div>
         <h2 style={{
             fontSize: '25px',
