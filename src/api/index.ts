@@ -8,7 +8,7 @@ interface ICreateEssay {
   secret_key?: string;
 }
 
-type TEssay = ICreateEssay & {
+export type TEssay = ICreateEssay & {
   id: number;
   created_at: Date;
   updated_at: Date;
@@ -27,5 +27,23 @@ export async function createEssay({secret_key, title, essay_text}: ICreateEssay)
     return 'essay created'
   } catch (err: any) {
     return err.message
+  }
+}
+
+export async function getEssays() {
+  try {
+    const {rows} = await sql`SELECT * FROM essays;`;
+    return rows;
+  } catch {
+    return;
+  }
+}
+
+export async function getUniqueEssay(title: string) {
+  try {
+    const {rows} = await sql`SELECT * FROM essays WHERE title = ${title} LIMIT 1;`;
+    return rows[0].essay_text;
+  }catch {
+    return;
   }
 }

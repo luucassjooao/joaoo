@@ -1,3 +1,4 @@
+import { getUniqueEssay } from "@/api";
 import { Metadata } from "next";
 
 interface IProps {
@@ -6,11 +7,15 @@ interface IProps {
   }
 }
 
-export function generateMetadata({ params }: IProps): Metadata {
-  const title = params.essayName
+function formatTitle(essayName: string): string {
+  return essayName
     .replace(/%20/g, ' ')
       .replace(/%23/g, '#')
-        .replace(/%26/g, '&');
+        .replace(/%26/g, '&')
+}
+
+export function generateMetadata({ params }: IProps): Metadata {
+  const title = formatTitle(params.essayName)
 
   return {
     title
@@ -18,13 +23,17 @@ export function generateMetadata({ params }: IProps): Metadata {
 }
 
 export default async function Essay({ params }: IProps) {
+  const essay = await getUniqueEssay(formatTitle(params.essayName));
+
   return (
     <div style={{ overflowWrap: 'break-word', width: 700}} >
       <h1 className="text-xl text-green-700 font-bold mb-4">{params.essayName}</h1>
       <h1 className="text-base text-green-700 font-bold mb-4">{`${new Date().toDateString()}`}</h1>
-      <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam mollitia at, ex facere vel pariatur quis nobis soluta! Voluptatibus earum voluptate natus sequi ipsum at assumenda iste doloribus ipsam! Deleniti. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia, optio sit dicta facilis aperiam quia est? Cupiditate ratione, tempore alias, perferendis commodi praesentium fugiat minus facilis recusandae doloribus pariatur possimus.
-      </p>
+      <div
+        dangerouslySetInnerHTML={{
+          __html: essay,
+        }}
+      />
     </div>
   )
 }
