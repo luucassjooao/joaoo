@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function Recursion() {
   return (
-    <div style={{ overflowWrap: 'break-word', width: 500, marginBottom: 100}} >
+    <div style={{ overflowWrap: 'break-word', width: 700, marginBottom: 100}} >
       <h1 className="text-xl text-green-700 font-bold mb-4">Recursão e busca em árvore binaria</h1>
       <h1 className="text-base text-green-700 font-bold mb-4">22/06/2024</h1>
       <div>
@@ -94,8 +94,7 @@ export default function Recursion() {
 <br /><br />
         [4] Aqui entra a nossa recursividade, vamos tomar de exemplo o node 17. O node 17 tem os dois caminhos, mas como a nossa logica tende priorizar o lado esquerdo, vamos chamar a nossa função novamente, e quando for chamar ela, vai chamar justamente para o node 11, o node 11, tem  apenas 1 caminho, então ele não vai cair no primeiro if, e nem no segundo, e sim no terceiro if, que verifica se apenas o caminho esquerda, e vendo que tem, oque ele vai fazer? vai chamar a função novamente, para o node 10, que é o node do caminho esquerdo do node 11. O node 10, vai cair no primeiro if, porque ele não tem mais caminhos, nem para a direita e nem para a esquerda, ele será adicionado no array, e depois disso, essa função ira se encerrar - função do node 10-, depois disso, retorna para o node 11, o node 11 se adiciona, e encerra a sua funçao tambem..
 <br /><br />
-        [5] Depois de sair do node 11, ele vai retornar para o node 17, se adicionando no array, e chamando a função novamente depois de se adicionar, para o caminho da direita, que é o caminho que dá no node 19, inicializando a função, ele vai cair no primeiro if, e vai se adicionar, e encerrar a função. Depois disso, voltando ao node 17, como já executou tudo que estava dentro deste if, já passando por todas as suas ramificaçoes, vai encerrar a função também - funçao do node 17-, e vai voltar para o node 30, para se adicionar, e ir para o caminho da direita. Revendo tudo fica assim:\</p>
-<br /><br />
+        [5] Depois de sair do node 11, ele vai retornar para o node 17, se adicionando no array, e chamando a função novamente depois de se adicionar, para o caminho da direita, que é o caminho que dá no node 19, inicializando a função, ele vai cair no primeiro if, e vai se adicionar, e encerrar a função. Depois disso, voltando ao node 17, como já executou tudo que estava dentro deste if, já passando por todas as suas ramificaçoes, vai encerrar a função também - funçao do node 17-, e vai voltar para o node 30, para se adicionar, e ir para o caminho da direita. Revendo tudo fica assim:</p>
       <pre>
         <code>
     {`
@@ -116,7 +115,7 @@ export default function Recursion() {
         em si essa função faz só isso. <br />
         agora para o resto do código: <br />
         </p>
-        <Image src={'/essaysImgs/recursion/finalbst.png'} alt="primeiro exemplo de arvore binaria" width={500} height={500} />
+        <Image src={'/essaysImgs/recursion/finalbst.png'} alt="resultado do grafo" width={500} height={500} />
         <p>
         [6] Vamos adicionar o primeiro o root node na função
 <br /><br />
@@ -126,12 +125,12 @@ export default function Recursion() {
 <br /><br />
         Agora para testarmos, temos que adicionar os nossos nodes:
         </p>
-        <Image src={'/essaysImgs/recursion/addnodes.png'} alt="primeiro exemplo de arvore binaria" width={300} height={300} />
+        <Image src={'/essaysImgs/recursion/addnodes.png'} alt="adicioniar os nodes" width={300} height={300} />
         <p>
           E se tudo der certo, nessa nossa árvore que pegamos de exemplo, e com o n sendo quarto maior elemento na nossa árvore binaria, no console deve retornar isso:
         </p>
 
-        <Image src={'/essaysImgs/recursion/resultbst.png'} alt="primeiro exemplo de arvore binaria" width={500} height={300} />
+        <Image src={'/essaysImgs/recursion/resultbst.png'} alt="resultado da bst" width={500} height={300} />
         <p>
         Pronto vimos um exemplo de recursividade em uma busca na árvore binaria, vale a pena lembrar que essa função é feita e funciona perfeitamente onde temos um BST, que lembrando, todos os nodes da esquerda são menores que os node da direita, e o node principal de uma ramificação, é um node/numero que está entre seus dois nodes, isso permite que conseguimos ter um array em forma ascendente, sendo o menor node/numero para o maior node.
 <br /><br />
