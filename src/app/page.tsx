@@ -3,15 +3,17 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import {useIsMobile} from "./hooks/useIsMobile";
 
 export default function Home() {
+  const {isMobile} = useIsMobile({ size: 500 });
+
   const [repos, setRepos] = useState<{
     name: string;
     description: string;
     updated_at: Date;
     html_url: string;
   }[]>([]);
-  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     async function requestToGit() {
@@ -25,16 +27,6 @@ export default function Home() {
       }
     }
     requestToGit();
-  }, []);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 700);
-    };
-    window.addEventListener('resize', handleResize);
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
   }, []);
   
   return (
